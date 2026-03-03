@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bell Therapeutics — 웹사이트 리뉴얼 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bell-navy: #0B1F3A;
+    --bell-blue: #1A4A8A;
+    --bell-teal: #0D7A8A;
+    --bell-accent: #00C4CC;
+    --gray-100: #F7F9FB;
+    --gray-200: #E5EBF0;
+    --gray-400: #94A3B8;
+    --gray-600: #4A5568;
+    --gray-800: #1A202C;
+  }
+  body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--gray-100);
+    color: var(--gray-800);
+    min-height: 100vh;
+  }
+
+  /* Header */
+  .header {
+    background: var(--bell-navy);
+    color: white;
+    padding: 48px 48px 40px;
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .header .logo {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--bell-accent);
+    margin-bottom: 16px;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .header .desc {
+    font-size: 14px;
+    color: var(--gray-400);
+    line-height: 1.6;
+  }
+  .header .meta-row {
+    display: flex;
+    gap: 24px;
+    margin-top: 20px;
+    font-size: 12px;
+    color: var(--gray-400);
+  }
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .meta-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--bell-accent);
+  }
+
+  /* Main */
+  .main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 48px 80px;
+  }
+
+  /* Phase Section */
+  .phase {
+    margin-bottom: 48px;
+  }
+  .phase-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .phase-num {
+    background: var(--bell-navy);
+    color: var(--bell-accent);
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .phase-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--bell-navy);
+  }
+  .phase-desc {
+    font-size: 13px;
+    color: var(--gray-600);
+    margin-left: 44px;
+    margin-bottom: 16px;
+  }
+
+  /* Card Grid */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+    margin-left: 44px;
+  }
+
+  /* Card */
+  .card {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--gray-200);
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.15s;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+  }
+  .card:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+  }
+  .card-thumb {
+    height: 160px;
+    background: var(--bell-navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .card-thumb .thumb-icon {
+    font-size: 48px;
+    opacity: 0.15;
+    position: absolute;
+  }
+  .card-thumb .thumb-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    letter-spacing: 0.5px;
+    z-index: 1;
+  }
+  .card-body {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .card-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 6px;
+  }
+  .card-desc {
+    font-size: 12px;
+    color: var(--gray-600);
+    line-height: 1.5;
+    flex: 1;
+  }
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--gray-200);
+  }
+  .card-status {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+  .status-done {
+    background: #D1FAE5;
+    color: #065F46;
+  }
+  .status-progress {
+    background: #FEF3C7;
+    color: #B45309;
+  }
+  .status-todo {
+    background: var(--gray-200);
+    color: var(--gray-600);
+  }
+  .card-version {
+    font-size: 11px;
+    color: var(--gray-400);
+    font-family: monospace;
+  }
+  .card-arrow {
+    font-size: 12px;
+    color: var(--bell-teal);
+    font-weight: 600;
+  }
+
+  /* Disabled card */
+  .card.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  .card.disabled .card-thumb {
+    background: var(--gray-600);
+  }
+
+  /* Footer */
+  .footer {
+    background: var(--bell-navy);
+    color: var(--gray-400);
+    font-size: 11px;
+    padding: 20px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="logo">BELL THERAPEUTICS</div>
+    <h1>웹사이트 리뉴얼 2026</h1>
+    <div class="desc">UX팀 디자인 산출물 허브 — IA, 와이어프레임, 프로토타입을 한곳에서 확인하세요.</div>
+    <div class="meta-row">
+      <div class="meta-item"><div class="meta-dot"></div> UX Team</div>
+      <div class="meta-item"><div class="meta-dot"></div> 2026. 03</div>
+      <div class="meta-item"><div class="meta-dot"></div> 내부 공유용</div>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- Phase 1: Research & IA -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-num">1</div>
+      <div class="phase-title">Research & Information Architecture</div>
+    </div>
+    <div class="phase-desc">경쟁사 분석, 사이트맵, IA 구조 설계</div>
+    <div class="card-grid">
+
+      <a class="card" href="01_ia_diagram.html">
+        <div class="card-thumb">
+          <div class="thumb-icon">&#9783;</div>
+          <div class="thumb-label">IA DIAGRAM</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">IA 다이어그램</div>
+          <div class="card-desc">네비게이션 구조, 타겟별 콘텐츠 매핑, 사용자 여정, 갭 분석을 포함한 전체 정보 구조도</div>
+          <div class="card-footer">
+            <span class="card-status status-done">완료</span>
+            <span class="card-version">v1.5</span>
+            <span class="card-arrow">열기 →</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- Phase 2: Wireframes -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-num">2</div>
+      <div class="phase-title">Wireframes</div>
+    </div>
+    <div class="phase-desc">주요 페이지 레이아웃 및 콘텐츠 배치</div>
+    <div class="card-grid">
+
+      <a class="card disabled" href="#">
+        <div class="card-thumb">
+          <div class="thumb-icon">&#9634;</div>
+          <div class="thumb-label">HOME</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Home 와이어프레임</div>
+          <div class="card-desc">히어로, 미션 소개, 코어벨류, Clinical Evidence 요약, 후기, Contact 섹션</div>
+          <div class="card-footer">
+            <span class="card-status status-todo">예정</span>
+            <span class="card-version">—</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="card disabled" href="#">
+        <div class="card-thumb">
+          <div class="thumb-icon">&#9881;</div>
+          <div class="thumb-label">SCIENCE</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Science & Technology 와이어프레임</div>
+          <div class="card-desc">플랫폼 개요, 뇌공학, Clinical Evidence, 연구소 소개</div>
+          <div class="card-footer">
+            <span class="card-status status-todo">예정</span>
+            <span class="card-version">—</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="card disabled" href="#">
+        <div class="card-thumb">
+          <div class="thumb-icon">&#9740;</div>
+          <div class="thumb-label">PRODUCTS</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Products 와이어프레임</div>
+          <div class="card-desc">Sleep Thera 랜딩, Wowfit 랜딩 페이지</div>
+          <div class="card-footer">
+            <span class="card-status status-todo">예정</span>
+            <span class="card-version">—</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- Phase 3: Prototype -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-num">3</div>
+      <div class="phase-title">Visual Design & Prototype</div>
+    </div>
+    <div class="phase-desc">비주얼 디자인 시안 및 인터랙티브 프로토타입</div>
+    <div class="card-grid">
+
+      <a class="card disabled" href="#">
+        <div class="card-thumb">
+          <div class="thumb-icon">&#9830;</div>
+          <div class="thumb-label">VISUAL</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">비주얼 디자인 시안</div>
+          <div class="card-desc">컬러, 타이포그래피, 컴포넌트 스타일 가이드</div>
+          <div class="card-footer">
+            <span class="card-status status-todo">예정</span>
+            <span class="card-version">—</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div>Bell Therapeutics Inc. — 내부 문서 · 배포 금지</div>
+  <div>UX Team 2026</div>
+</div>
+
+</body>
+</html>
