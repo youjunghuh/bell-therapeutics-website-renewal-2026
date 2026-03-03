@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bell Therapeutics — IA 다이어그램 v1.0</title>
+<title>Bell Therapeutics — IA 다이어그램 v1.5</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   :root {
@@ -275,7 +275,7 @@
 <div class="page-header">
   <div>
     <div class="logo">BELL THERAPEUTICS</div>
-    <div class="subtitle">Information Architecture v1.0 — 웹사이트 리브랜딩</div>
+    <div class="subtitle">Information Architecture v1.5 — 웹사이트 리브랜딩</div>
   </div>
   <div class="meta">
     <div class="version">IA Diagram</div>
@@ -340,18 +340,18 @@
       </div>
       <div class="nav-item">
         <div class="nav-badge shared"></div>
-        Products &amp;<br>Pipeline
+        Products
         <span class="nav-url">/products</span>
-      </div>
-      <div class="nav-item">
-        <div class="nav-badge shared"></div>
-        Team
-        <span class="nav-url">/team</span>
       </div>
       <div class="nav-item">
         <div class="nav-badge shared"></div>
         Press
         <span class="nav-url">/press</span>
+      </div>
+      <div class="nav-item">
+        <div class="nav-badge shared"></div>
+        Career / Team
+        <span class="nav-url">/team</span>
       </div>
     </div>
 
@@ -363,7 +363,7 @@
         <div class="sub-item shared">
           <div class="si-url">/</div>
           <div class="si-title">Homepage</div>
-          <div class="si-desc">히어로(미션 + 비전), "벨이 일하는 방식 →" CTA(/team), 임상 근거 요약, 제품 요약, 수치 임팩트, Our Story, Partners, Contact</div>
+          <div class="si-desc">① 히어로(미션 + 신뢰 수치) ② 미션 소개(제품별 기존 한계 → 벨 해결책) ③ 코어벨류 소개 ④ Clinical Evidence 요약(임상결과, 논문/IRB, 협력병원 로고) ⑤ 후기(의료진 코멘트 + 환자 후기) ⑥ Contact</div>
           <div class="si-tags">
             <span class="si-tag shared">공통</span>
           </div>
@@ -387,19 +387,19 @@
         <div class="sub-item hcp new-page">
           <div class="si-url">/science/evidence</div>
           <div class="si-title">Clinical Evidence</div>
-          <div class="si-desc">RCT 결과, 임상시험 현황, Publications, 처방 가이드</div>
+          <div class="si-desc">규제 상태·임상 단계, 연구 설계 요약, 결과 수치, 논문/자료</div>
           <div class="si-tags"><span class="si-tag hcp">HCP</span><span class="si-tag investor">투자자</span><span class="si-tag new">신규</span></div>
+        </div>
+        <div class="sub-item investor new-page">
+          <div class="si-url">/science/lab</div>
+          <div class="si-title">연구소 소개</div>
+          <div class="si-desc">Bell 연구소 → 별도 연구소 페이지로 연결</div>
+          <div class="si-tags"><span class="si-tag investor">투자자</span><span class="si-tag new">신규</span></div>
         </div>
       </div>
 
-      <!-- Products & Pipeline -->
+      <!-- Products -->
       <div class="sublevel-col">
-        <div class="sub-item shared">
-          <div class="si-url">/products</div>
-          <div class="si-title">Pipeline Overview</div>
-          <div class="si-desc">Phase 차트, 개발 로드맵</div>
-          <div class="si-tags"><span class="si-tag investor">투자자</span><span class="si-tag shared">공통</span></div>
-        </div>
         <div class="sub-item patient">
           <div class="si-url">/products/sleep-thera</div>
           <div class="si-title">Sleep Thera</div>
@@ -414,7 +414,17 @@
         </div>
       </div>
 
-      <!-- Team -->
+      <!-- Press -->
+      <div class="sublevel-col">
+        <div class="sub-item shared">
+          <div class="si-url">/press</div>
+          <div class="si-title">Press / News</div>
+          <div class="si-desc">보도자료, 수상 내역</div>
+          <div class="si-tags"><span class="si-tag shared">공통</span></div>
+        </div>
+      </div>
+
+      <!-- Career / Team -->
       <div class="sublevel-col">
         <div class="sub-item shared">
           <div class="si-url">/team</div>
@@ -432,16 +442,6 @@
           <div class="si-url">/team/careers</div>
           <div class="si-title">Careers</div>
           <div class="si-desc">채용 공고, 벨의 문화</div>
-          <div class="si-tags"><span class="si-tag shared">공통</span></div>
-        </div>
-      </div>
-
-      <!-- Press -->
-      <div class="sublevel-col">
-        <div class="sub-item shared">
-          <div class="si-url">/press</div>
-          <div class="si-title">Press / News</div>
-          <div class="si-desc">보도자료, 수상 내역</div>
           <div class="si-tags"><span class="si-tag shared">공통</span></div>
         </div>
       </div>
@@ -574,11 +574,11 @@
           <td>HCP, 투자자</td>
         </tr>
         <tr>
-          <td><strong>Products & Pipeline</strong></td>
+          <td><strong>Products</strong></td>
           <td><span class="badge-improve">개선</span></td>
           <td>파이프라인 이미지만 존재, 인터랙션 없음</td>
-          <td>Phase별 인터랙티브 차트, 제품별 랜딩 분리</td>
-          <td>투자자, 공통</td>
+          <td>제품별 독립 랜딩 페이지, 환자/HCP 콘텐츠 분리</td>
+          <td>환자, HCP</td>
         </tr>
         <tr>
           <td><strong>Press / News</strong></td>
@@ -623,7 +623,7 @@
 
 <div class="page-footer">
   <div>Bell Therapeutics Inc. — 내부 문서 · 배포 금지</div>
-  <div>IA v1.4 · 다음 단계: 주요 페이지 와이어프레임 제작</div>
+  <div>IA v1.5 · 다음 단계: 주요 페이지 와이어프레임 제작</div>
 </div>
 
 </body>
