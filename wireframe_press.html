@@ -12,6 +12,9 @@
   .doc-header .meta { font-size: 11px; color: #999; }
   .doc-header a { color: #999; text-decoration: none; font-size: 11px; }
   .doc-header a:hover { color: #fff; }
+  .view-toggle { display: flex; gap: 2px; margin-top: 8px; }
+  .view-toggle a { padding: 4px 12px; font-size: 11px; font-weight: 600; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.5); }
+  .view-toggle a.active { background: #fff; color: #111; border-color: #fff; }
   .canvas { max-width: 1200px; margin: 40px auto; padding: 0 48px; }
   .wf-section { background: #fff; border: 1px solid #ddd; margin-bottom: 2px; position: relative; }
   .wf-section-label { position: absolute; top: 0; left: -1px; background: #111; color: #fff; font-size: 10px; font-weight: 600; padding: 3px 10px; letter-spacing: 0.5px; }
@@ -57,10 +60,13 @@
 
 <div class="doc-header">
   <div>
-    <div class="title">PRESS 와이어프레임 — Bell Therapeutics 웹사이트 v2.0</div>
-    <div class="meta">2026. 03. 03 · UX Team</div>
+    <div class="title">BELL THERAPEUTICS — 웹사이트 v2.0</div>
+    <div class="view-toggle">
+      <a href="01_ia_diagram.html">IA</a>
+      <a href="wireframe_home.html" class="active">Wireframe</a>
+    </div>
   </div>
-  <a href="index.html">&larr; 허브로 돌아가기</a>
+  <div class="meta">2026. 03. 03 · UX Team</div>
 </div>
 
 <div class="canvas">
